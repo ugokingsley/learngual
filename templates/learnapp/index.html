@@ -1,0 +1,14 @@
+{% extends '../base.html' %}
+
+{% block content %}
+<h2>Hello Me</h2>
+<script>
+    let url = `ws://${window.location.host}/msg/`
+    const msgSocket = new WebSocket(url)
+
+    msgSocket.onmessage = function(e){
+        let data = JSON.parse(e.data)
+        console.log('Data: ', data)
+    }
+</script>
+{% endblock %}
